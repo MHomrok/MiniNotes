@@ -1,0 +1,86 @@
+body {
+  width: 400px;
+  height: 172px;
+  margin: 5px;
+}
+
+.nav-tabs {
+  float: left;
+  display: block;
+  height: 100%;
+  font-size: small;
+  border-right: 2px solid rgb(155, 155, 155);
+  overflow-y: scroll;
+}
+
+.nav-item {
+  display: flex;
+  width: 65px;
+  padding-right: 5px;
+  justify-content: space-between;
+}
+
+.nav-link {
+  color: rgb(120, 120, 120);
+  border: none!important;
+  padding: 2px;
+}
+
+/*Button Panel*/
+.nav-link.active {
+  color: rgb(0, 0, 0);
+}
+
+.btn-group-vertical {
+  float: left;
+}
+
+button {
+  height: 25px!important;
+  width: 25px!important;
+  border: none!important;
+  border-radius: 0!important;
+}
+
+/*Content Panel*/
+.tabs-content {
+  float: left;
+}
+
+.tab-pane {
+  height: 100%;
+  outline: none;
+  overflow-y: scroll;
+  border-left: 4px double rgb(155, 155, 155);
+  padding-left: 5px;
+}
+
+/*Settings Button*/
+#stt {
+  padding: 5px;
+}
+
+#stt:hover {
+  background-color: black;
+}
+
+/*Add Button*/
+#add {
+  font-size: large;
+  text-align: center;
+  font-weight: bolder;
+  padding: 0;
+}
+
+/*Close Button*/
+.close {
+  cursor: pointer;
+  user-select: none;
+  line-height: 100%;
+}
+
+/*Hide scrollbar*/
+::-webkit-scrollbar {
+  display: none;
+}
+

@@ -1,0 +1,23 @@
+body {
+    text-align: center;
+}
+
+p {
+    font-size: medium;
+    padding-top: 15px;
+}
+
+#rs {
+    padding-top: 25px;
+}
+
+#sv{
+    padding-top: 15px;
+}
+
+select {
+    width: 200px!important;
+    text-align: center!important;
+    display: block;
+    margin: 0 auto;
+}
