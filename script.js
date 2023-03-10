@@ -33,6 +33,14 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    //scroll tab panel by mousewheel
+    const scrollContainer = document.querySelector("ul");
+
+    scrollContainer.addEventListener("wheel", (evt) => {
+        evt.preventDefault();
+        scrollContainer.scrollLeft += evt.deltaY;
+    });
+
     
     //buttons
     document.getElementById("B").addEventListener("click", () => {   
@@ -83,10 +91,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     //create new tabs
     $('#add').click(function () {
-        var nextTab = $('#tabs li').length+1;
-      
+        var mylist = document.getElementById("tabs");
+        // id 0f the last list item
+        var lastElement = mylist.lastElementChild.id;
+        var nextTab = parseInt(lastElement) + 1;
+
         // create the tab
-        $('<li class="nav-item"><a class="nav-link" href="#tab'+nextTab+'" data-toggle="tab" id="t'+nextTab+'" title="tab'+nextTab+'"><b>Note'+nextTab+'</b></a></li>').appendTo('#tabs');
+        $('<li class="nav-item" id='+nextTab+'><a class="nav-link" href="#tab'+nextTab+'" data-toggle="tab" id="t'+nextTab+'" title="tab'+nextTab+'"><b>Note'+nextTab+'</b><span class="close"> x</span></a></li>').appendTo('#tabs');
         
         // create the tab content
         $('<div class="tab-pane" id="tab'+nextTab+'" contenteditable="true"></div>').appendTo('#tabs-content');
@@ -94,17 +105,9 @@ document.addEventListener("DOMContentLoaded", function() {
         // make the new tab active
         $('#tabs a:last').tab('show');
         
-        //add close button
-        var myNodelist = document.getElementsByTagName("LI");
-        var span = document.createElement("SPAN");
-        var txt = document.createTextNode("\u00D7");
-        span.className = "close";
-        span.appendChild(txt);
-        myNodelist[i+1].appendChild(span);
-        
         localStorage.setItem("page", JSON.stringify(document.documentElement.innerHTML));
         location.reload();
-
+        
     });
 
 
@@ -116,12 +119,13 @@ document.addEventListener("DOMContentLoaded", function() {
     
     //remove tabs
     var close = document.getElementsByClassName("close");
-    var i;
     for (i = 0; i < close.length; i++) {
         close[i].onclick = function() {
-            this.parentElement.remove();
+            //making nav-link anchor active to avoid illegal invocation error from bootstrap
+            this.parentElement.className += " active";
+            this.parentElement.closest("li").remove();
 
-            var tabchref = this.parentElement.firstChild.getAttribute("title");
+            var tabchref = this.parentElement.getAttribute("title");
             var tabc = document.getElementById(tabchref)
             tabc.remove();
 

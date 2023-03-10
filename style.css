@@ -1,40 +1,78 @@
 body {
   width: 400px;
-  height: 172px;
+  height: 170px;
   margin: 5px;
 }
 
-.nav-tabs {
+#buttons {
   float: left;
-  display: block;
-  height: 100%;
-  font-size: small;
-  border-right: 2px solid rgb(155, 155, 155);
-  overflow-y: scroll;
 }
 
-.nav-item {
+#container {
+  float: left;
+}
+
+#navigation {
+  width: 370px;
+  height: 25px;
+}
+
+#tabs {
+  height: 25px;
   display: flex;
-  width: 65px;
-  padding-right: 5px;
-  justify-content: space-between;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  border-color: rgb(0, 0, 0);
 }
 
 .nav-link {
-  color: rgb(120, 120, 120);
-  border: none!important;
-  padding: 2px;
+  display: flex!important;
+  height: 24px!important;
+  border-width: 1px!important;
+  border-color: black!important;
+  margin-left: 1px!important;
 }
 
-/*Button Panel*/
 .nav-link.active {
-  color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0)!important;
 }
 
-.btn-group-vertical {
-  float: left;
+a {
+  padding-top: 4px!important;
+  padding-bottom: 3px!important;
+  padding-left: 10px!important;
+  padding-right: 10px!important;
+  font-size: 12px!important;
+  text-align: justify!important;
+  line-height: normal!important;
+  color: rgb(170, 170, 170)!important;
 }
 
+span {
+  padding-left: 5px;
+}
+
+.tab-pane {
+  width: 370px;
+  height: 140px;
+  overflow-y: scroll;
+  outline: none;
+  padding-left: 5px;
+  padding-top: 5px;
+  word-break: break-all;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+#t1 {
+  border-left: 0px!important;
+  border-radius: 0 8px 0 0;
+}
+
+/*Buttons*/
 button {
   height: 25px!important;
   width: 25px!important;
@@ -42,17 +80,9 @@ button {
   border-radius: 0!important;
 }
 
-/*Content Panel*/
-.tabs-content {
-  float: left;
-}
-
-.tab-pane {
-  height: 100%;
-  outline: none;
-  overflow-y: scroll;
-  border-left: 4px double rgb(155, 155, 155);
-  padding-left: 5px;
+#buttons {
+  border-left: 3px double black;
+  border-right: 3px double black;
 }
 
 /*Settings Button*/
@@ -78,9 +108,3 @@ button {
   user-select: none;
   line-height: 100%;
 }
-
-/*Hide scrollbar*/
-::-webkit-scrollbar {
-  display: none;
-}
-

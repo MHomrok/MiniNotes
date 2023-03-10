@@ -8,16 +8,8 @@
     </head>
 
     <body>
-        
-        <div>
-            <ul class="nav nav-tabs" id="tabs">   
-                <li class="nav-item">
-                    <a class="nav-link active" href="#tab1" data-toggle="tab" id="t1" title="tab1"><b>Note1</b></a>
-                </li>
-            </ul>
-        </div>
 
-        <div class="btn-group-vertical" role="group" aria-label="Vertical button group" id="buttons">
+        <div id="buttons" class="btn-group-vertical" role="group" aria-label="Vertical button group">
             <button type="button" class="btn btn-outline-dark btn-sm" id="add"><b>+</b></button>
             <button type="button" class="btn btn-outline-dark btn-sm" id="B"><b>B</b></button>
             <button type="button" class="btn btn-outline-dark btn-sm" id="I"><i>I</i></button>
@@ -26,9 +18,21 @@
             <input type="image" id="OL" src="icons/ol1.png" width="25px" height="25px" title="Ordered List"/>
             <input type="image" id="stt" src="icons/stt1.png" width="25px" height="25px" title="Settings"/>
         </div>
-        
-        <div class="tab-content" id="tabs-content">
-            <div class="tab-pane active" id="tab1" contenteditable="true"></div>
+
+        <div id="container">
+
+            <div id="navigation">
+                <ul class="nav nav-tabs" id="tabs">   
+                    <li class="nav-item" id="1">
+                        <a class="nav-link active" href="#tab1" data-toggle="tab" id="t1" title="tab1"><b>Note</b></a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="tab-content" id="tabs-content">
+                <div class="tab-pane active" id="tab1" contenteditable="true"></div>
+            </div>
+
         </div>
 
     </body>
