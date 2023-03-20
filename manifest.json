@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Mini Notes",
     "description": "Take simple notes with basic editiong options",
-    "version": "1.1",
+    "version": "1.2",
     "action": {
         "default_popup": "index.html",
         "default_icon": "icons/note_icon.png"

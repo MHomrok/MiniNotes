@@ -1,5 +1,4 @@
 # Mini Notes
-#### Video Demo:  <URL https://youtu.be/06zoItcrLbs>
 #### Description:
 Chrome extension, a simple notepad with basic editing options. 
 The main goal is to have a functioning place to quickly store small amount of data. A simple note. Without any bloat or unnecessary options.
