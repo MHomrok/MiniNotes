@@ -1,14 +1,18 @@
 document.addEventListener("DOMContentLoaded", function() {
     
     
-    //save to local storage, load from local storage
+    //load from local storage
     if (JSON.parse(localStorage.getItem("page")) != null) {
         document.documentElement.innerHTML = JSON.parse(localStorage.getItem("page"));
     }
 
-    document.addEventListener("mousemove", function() {
-        localStorage.setItem("page", JSON.stringify(document.documentElement.innerHTML));
-    })
+    //save to local storage on manual input
+    let area = document.getElementsByClassName("tab-pane");
+    for (var i = 0; i < area.length; i++) {
+        area[i].addEventListener("input", function() {
+            localStorage.setItem("page", JSON.stringify(document.documentElement.innerHTML));
+        });
+    }
     
 
     //paste as plain text
@@ -17,19 +21,22 @@ document.addEventListener("DOMContentLoaded", function() {
         txtarea[i].addEventListener("paste", function(e) {
             e.preventDefault()
 
-        let cliptxt = e.clipboardData.getData("text/plain");
+            let cliptxt = e.clipboardData.getData("text/plain");
 
-        const range = document.getSelection().getRangeAt(0);
-        range.deleteContents();
+            const range = document.getSelection().getRangeAt(0);
+            range.deleteContents();
 
-        let textNode = document.createTextNode(cliptxt);
-        range.insertNode(textNode);
-        range.selectNodeContents(textNode);
-        range.collapse(false);
+            let textNode = document.createTextNode(cliptxt);
+            range.insertNode(textNode);
+            range.selectNodeContents(textNode);
+            range.collapse(false);
 
-        let selection = window.getSelection();
-        selection.removeAllRanges();
-        selection.addRange(range);
+            let selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+
+            //save to local storage on paste event
+            localStorage.setItem("page", JSON.stringify(document.documentElement.innerHTML));
         });
     }
 
