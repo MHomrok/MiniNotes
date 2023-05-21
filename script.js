@@ -13,7 +13,17 @@ document.addEventListener("DOMContentLoaded", function() {
             localStorage.setItem("page", JSON.stringify(document.documentElement.innerHTML));
         });
     }
+
+    //save by panel click
+    document.addEventListener("click", function onClick() {
+        localStorage.setItem("page", JSON.stringify(document.documentElement.innerHTML));
+    });
     
+
+    //open extension on last active tab
+    var element = document.querySelector('#tabs > li.nav-item > a.active');
+    element.scrollIntoView(false);
+
 
     //paste as plain text
     let txtarea = document.getElementsByClassName("tab-pane");
@@ -178,8 +188,4 @@ window.onload = function() {
     document.getElementById("stt").src="icons/stt1.png";
     document.getElementById("UL").src="icons/ul1.png";
     document.getElementById("OL").src="icons/ol1.png";
-
-    //open extension on last active tab
-    var element = document.querySelector('#tabs > li.nav-item > a.active');
-    element.scrollIntoView(false);
 }
